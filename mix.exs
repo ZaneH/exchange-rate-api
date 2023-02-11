@@ -18,7 +18,8 @@ defmodule ExchangeRateApi.MixProject do
         extra_applications(Mix.env(), [
           :logger,
           :con_cache,
-          :httpoison
+          :httpoison,
+          :corsica
         ]),
       mod: {ExchangeRate, []}
     ]
@@ -31,7 +32,8 @@ defmodule ExchangeRateApi.MixProject do
       {:plug_cowboy, "~> 2.6.0"},
       {:poison, "~> 5.0.0"},
       {:lettuce, "~> 0.2.0", only: :dev},
-      {:httpoison, "~> 2.0.0"}
+      {:httpoison, "~> 2.0.0"},
+      {:corsica, "~> 1.3.0"}
     ]
   end
 

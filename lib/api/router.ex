@@ -1,8 +1,16 @@
 defmodule ExchangeRate.Api.Router do
-  use Plug.Router
-
   alias ExchangeRate.Api.Util
   alias ExchangeRate.Api.Routes.V1
+
+  use Plug.Router
+
+  plug(
+    Corsica,
+    origins: "*",
+    max_age: 600,
+    allow_methods: :all,
+    allow_headers: :all
+  )
 
   plug(:match)
   plug(:dispatch)
