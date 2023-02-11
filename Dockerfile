@@ -1,7 +1,5 @@
 FROM elixir:1.14-alpine AS build
 
-ENV APP_NAME=exchange_rate_api
-
 ENV MIX_ENV=prod
 
 WORKDIR /app
@@ -22,8 +20,8 @@ RUN \
 
 FROM elixir:1.14-alpine
 
-COPY --from=build /app/_build/prod/rel/$APP_NAME /opt/$APP_NAME
+COPY --from=build /app/_build/prod/rel/exchange_rate_api /opt/exchange_rate_api
 
 EXPOSE 4000
 
-CMD [ "/opt/$APP_NAME/bin/$APP_NAME", "start" ]
+CMD [ "/opt/exchange_rate_api/bin/exchange_rate_api", "start" ]
