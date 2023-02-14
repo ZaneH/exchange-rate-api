@@ -1,21 +1,30 @@
-# ExchangeRateApi
+# Exchange Rate API
 
-**TODO: Add description**
+Fetch the exchange rate for various currencies based on the [Exchange Rate API](https://exchangerate-api.com/). This is a wrapper around the API and is not affiliated with the Exchange Rate API.
 
-## Installation
+- **Example Request:** `/v1/rates/usd,gbp,eur,cad`
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `exchange_rate_api` to your list of dependencies in `mix.exs`:
+**Response:**
 
-```elixir
-def deps do
-  [
-    {:exchange_rate_api, "~> 0.1.0"}
-  ]
-end
+```json
+{
+    "status": "ok",
+    "data": {
+        "usd": 1,
+        "gbp": 0.824978,
+        "eur": 0.934425,
+        "cad": 1.33451
+    }
+}
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/exchange_rate_api>.
+## Run Locally
 
+**Pre-requisites:** [Elixir](https://elixir-lang.org/install.html)
+
+```bash
+  git clone https://github.com/zaneh/exchange-rate-api
+  cd exchange-rate-api
+  mix deps.get
+  mix run --no-halt
+```
