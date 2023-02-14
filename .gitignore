@@ -24,3 +24,5 @@ exchange_rate_api_9-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+hop.yml
