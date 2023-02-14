@@ -2,7 +2,7 @@
 
 Fetch the exchange rate for various currencies based on the [Exchange Rate API](https://exchangerate-api.com/). This is a wrapper around the API and is not affiliated with the Exchange Rate API. Responses are cached for 1 hour before re-fetching.
 
-- **Example Request:** `/v1/rates/usd,gbp,eur,cad`
+- **Example Request:** `GET /v1/rates/usd,gbp,eur,cad`
     - The currency request can be singular or CSV
 
 **Response:**
