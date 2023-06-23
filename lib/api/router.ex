@@ -1,6 +1,7 @@
 defmodule ExchangeRate.Api.Router do
   alias ExchangeRate.Api.Util
   alias ExchangeRate.Api.Routes.V1
+  alias ExchangeRate.Api.Routes.V2
 
   use Plug.Router
 
@@ -16,6 +17,7 @@ defmodule ExchangeRate.Api.Router do
   plug(:dispatch)
 
   forward("/v1", to: V1)
+  forward("/v2", to: V2)
 
   match _ do
     Util.not_found(conn)
