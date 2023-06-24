@@ -7,7 +7,7 @@ defmodule ExchangeRate.Currency.Cache do
 
   alias ExchangeRate.Currency.Fetch
 
-  @spec get(String.t()) :: {:ok, any} | {:error, String.t()}
+  @spec get(String.t()) :: any
   def get(currency) do
     ConCache.get_or_store(:api_cache, currency, fn ->
       Logger.info("Fetching currency data. No cache hit for #{currency}")

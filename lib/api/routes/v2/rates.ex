@@ -13,8 +13,12 @@ defmodule ExchangeRate.Api.Routes.V2.Rates do
   end
 
   get "/:currency/:amount" do
-    currency = conn.params["currency"]
-    {amount, _} = conn.params["amount"] |> Float.parse()
+    currency = conn.params["currency"] |> String.downcase()
+
+    {amount, _} =
+      conn.params["amount"]
+      |> String.replace(~r/[^0-9\.]/, "")
+      |> Float.parse()
 
     try do
       rate = Cache.get(currency)
@@ -25,7 +29,8 @@ defmodule ExchangeRate.Api.Routes.V2.Rates do
 
       conn |> Util.respond({:ok, message})
     rescue
-      _ ->
+      e ->
+        IO.inspect(e)
         conn |> Util.respond({:error, "Something went wrong. Try !convert currency amount"})
     end
   end
